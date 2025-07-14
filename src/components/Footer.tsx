@@ -2,7 +2,7 @@ import { Col, Container } from 'react-bootstrap';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 const Footer = () => (
-  <footer className="mt-auto py-3 bg-light">
+  <footer className="bg-dark text-center py-3" style={{ color: 'var(--nat-navbar-text-color)' }}>
     <Container>
       <Col className="text-center">
         Department of Information and Computer Sciences
