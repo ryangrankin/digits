@@ -44,6 +44,7 @@ const ListPage: React.FC = () => (
       <Row xs={1} md={2} lg={3} className="g-4">
         {contacts.map((contact) => (
           <Col key={`Contact-${contact.firstName}`}>
+            <ContactCard contact={contact} />
           </Col>
         ))}
       </Row>
