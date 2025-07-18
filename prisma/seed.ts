@@ -28,14 +28,13 @@ async function main() {
     );
   }
 
-  // Seed contacts
   if (config.defaultContacts) {
     await Promise.all(
       config.defaultContacts.map(async (contact: any, index: number) => {
         console.log(`Adding contact: ${contact.firstName} ${contact.lastName}`);
 
         await prisma.contact.upsert({
-          where: { id: index + 1 },
+          where: { id: String(index + 1) },
           update: {},
           create: {
             firstName: contact.firstName,
