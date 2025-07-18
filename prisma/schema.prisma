@@ -43,3 +43,13 @@ model Stuff {
   condition Condition @default(good)
   owner     String
 }
+
+model Contact {
+  id          String   @id @default(cuid())
+  firstName   String
+  lastName    String
+  address     String
+  image       String
+  description String
+  owner       String   // this stores user email
+}

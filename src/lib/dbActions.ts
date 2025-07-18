@@ -1,6 +1,6 @@
 'use server';
 
-import { Stuff, Condition } from '@prisma/client';
+import { Stuff, Condition, Contact } from '@prisma/client';
 import { hash } from 'bcrypt';
 import { redirect } from 'next/navigation';
 import { prisma } from './prisma';
@@ -90,5 +90,19 @@ export async function changePassword(credentials: { email: string; password: str
     data: {
       password,
     },
+  });
+}
+
+export async function editContact(contact: ContactInput) {
+  const { id, ...data } = contact;
+  return prisma.contact.update({
+    where: { id },
+    data,
+  });
+}
+
+export async function addContact(contact: ContactInput) {
+  return prisma.contact.create({
+    data: contact,
   });
 }
