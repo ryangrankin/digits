@@ -1,13 +1,28 @@
 {
-  "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "ADMIN" },
-    { "email": "john@foo.com", "password": "changeme" }
-  ],
-
-  "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  "defaultContacts": [
+    {
+      "firstName": "Philip",
+      "lastName": "Johnson",
+      "address": "123 Main St",
+      "image": "/images/philip.jpg",
+      "description": "Friend from work",
+      "owner": "john@foo.com"
+    },
+    {
+      "firstName": "Henri",
+      "lastName": "Casanova",
+      "address": "456 Park Ave",
+      "image": "/images/henri.jpg",
+      "description": "Neighbor",
+      "owner": "john@foo.com"
+    },
+    {
+      "firstName": "Kim",
+      "lastName": "Binsted",
+      "address": "789 Maple St",
+      "image": "/images/kim.jpg",
+      "description": "Colleague",
+      "owner": "admin@foo.com"
+    }
   ]
 }
