@@ -1,13 +1,40 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "ADMIN" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "admin@foo.com", "role": "ADMIN" },
+    { "email": "john@foo.com", "role": "USER" }
   ],
-
   "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+    {
+      "name": "Basket",
+      "quantity": 1,
+      "condition": "excellent",
+      "owner": "john@foo.com"
+    }
+  ],
+  "defaultContacts": [
+    {
+      "firstName": "Philip",
+      "lastName": "Johnson",
+      "address": "1680 East-West Rd",
+      "image": "https://johnphilipjohnson.com/philip.jpg",
+      "description": "Professor of ICS",
+      "owner": "john@foo.com"
+    },
+    {
+      "firstName": "Henri",
+      "lastName": "Casanova",
+      "address": "POST 307",
+      "image": "https://www2.hawaii.edu/~henric/casanova.jpg",
+      "description": "Professor of ICS",
+      "owner": "john@foo.com"
+    },
+    {
+      "firstName": "Kim",
+      "lastName": "Binsted",
+      "address": "POST 305",
+      "image": "https://www2.hawaii.edu/~binsted/binsted.jpg",
+      "description": "Professor of ICS",
+      "owner": "admin@foo.com"
+    }
   ]
 }

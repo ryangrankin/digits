@@ -1,61 +1,73 @@
 'use client';
 
+import { useState } from 'react';
 import { signIn } from 'next-auth/react';
-import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { Form, Button, Container, Alert } from 'react-bootstrap';
 
-/** The sign in page. */
-const SignIn = () => {
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+export default function SignInPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get('callbackUrl') || '/list';
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const target = e.target as typeof e.target & {
-      email: { value: string };
-      password: { value: string };
-    };
-    const email = target.email.value;
-    const password = target.password.value;
-    const result = await signIn('credentials', {
-      callbackUrl: '/list',
+    setError('');
+
+    const res = await signIn('credentials', {
+      redirect: false,
       email,
       password,
+      callbackUrl,
     });
 
-    if (result?.error) {
-      console.error('Sign in failed: ', result.error);
+    if (res?.error) {
+      setError('Invalid email or password');
+    } else {
+      router.push(callbackUrl);
     }
   };
 
   return (
-    <main>
-      <Container>
-        <Row className="justify-content-center">
-          <Col xs={5}>
-            <h1 className="text-center">Sign In</h1>
-            <Card>
-              <Card.Body>
-                <Form method="post" onSubmit={handleSubmit}>
-                  <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email</Form.Label>
-                    <input name="email" type="text" className="form-control" />
-                  </Form.Group>
-                  <Form.Group>
-                    <Form.Label>Password</Form.Label>
-                    <input name="password" type="password" className="form-control" />
-                  </Form.Group>
-                  <Button type="submit" className="mt-3">
-                    Signin
-                  </Button>
-                </Form>
-              </Card.Body>
-              <Card.Footer>
-                Don&apos;t have an account?
-                <a href="/auth/signup">Sign up</a>
-              </Card.Footer>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-    </main>
+    <Container style={{ maxWidth: '400px', marginTop: '2rem' }}>
+      <h2 className="mb-4">Sign In</h2>
+      {error && <Alert variant="danger">{error}</Alert>}
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="email">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="email"
+            value={email}
+            required
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter email"
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            value={password}
+            required
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter password"
+          />
+        </Form.Group>
+        <Button type="submit" variant="primary" className="w-100">
+          Sign In
+        </Button>
+      </Form>
+      <p className="mt-3 text-center">
+        Don&apos;t have an account?
+        {' '}
+        <a href="/auth/signup" onClick={(e) => e.preventDefault()}>
+          Sign up
+        </a>
+      </p>
+    </Container>
   );
-};
-
-export default SignIn;
+}
