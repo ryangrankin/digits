@@ -92,3 +92,14 @@ export async function changePassword(credentials: { email: string; password: str
     },
   });
 }
+
+export async function addNote(note: { note: string; contactId: number; owner: string}) {
+  await prisma.note.create({
+    data: {
+      note: note.note,
+      contactId: note.contactId,
+      owner: note.owner,
+    },
+  });
+  redirect('/list');
+}
