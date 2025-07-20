@@ -34,7 +34,7 @@ async function main() {
         console.log(`Adding contact: ${contact.firstName} ${contact.lastName}`);
 
         await prisma.contact.upsert({
-          where: { id: String(index + 1) },
+          where: { id: index + 1 },
           update: {},
           create: {
             firstName: contact.firstName,

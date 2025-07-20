@@ -92,7 +92,6 @@ export async function changePassword(credentials: { email: string; password: str
     },
   });
 }
-
 export const addContact = async (contact: {
   firstName: string;
   lastName: string;
@@ -100,28 +99,46 @@ export const addContact = async (contact: {
   image: string;
   description: string;
   owner: string;
-}) => prisma.contact.create({
-  data: contact,
-});
+}) => {
+  await prisma.contact.create({ data: contact });
+  redirect('/list');
+};
 
 export const editContact = async (contact: {
-  id: string;
+  id: number;
   firstName: string;
   lastName: string;
   address: string;
   image: string;
   description: string;
   owner: string;
-}) => prisma.contact.update({
-  where: {
-    id: contact.id,
-  },
-  data: {
-    firstName: contact.firstName,
-    lastName: contact.lastName,
-    address: contact.address,
-    image: contact.image,
-    description: contact.description,
-    owner: contact.owner,
-  },
-});
+}) => {
+  await prisma.contact.update({
+    where: { id: contact.id },
+    data: {
+      firstName: contact.firstName,
+      lastName: contact.lastName,
+      address: contact.address,
+      image: contact.image,
+      description: contact.description,
+      owner: contact.owner,
+    },
+  });
+  redirect('/list');
+};
+
+export const deleteContact = async (id: number) => {
+  await prisma.contact.delete({ where: { id } });
+  redirect('/list');
+};
+
+export async function addNote(note: { note: string; contactId: number; owner: string }) {
+  await prisma.note.create({
+    data: {
+      note: note.note,
+      contactId: note.contactId,
+      owner: note.owner,
+    },
+  });
+  redirect('/list');
+}
