@@ -20,6 +20,9 @@ To keep this codebase simple and small, some important capabilities are intentio
 
 Examples of the these capabilities will be provided elsewhere.
 
+# Project Home Page
+<img src="doc/landing.png" alt="Landing Page Screenshot" style="max-width: 100%; height: auto;">
+
 ## Installation
 
 First, [install PostgreSQL](https://www.postgresql.org/download/). Then create a database for your application.
