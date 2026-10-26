@@ -1,0 +1,68 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (vitest.config.ts:1:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+Both esbuild and oxc options were set. oxc options will be used and esbuild options will be ignored. The following esbuild options were set: `{ loader: 'tsx', include: /src\/.*\.[jt]sx?$/, jsx: 'automatic' }`
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.5 [39m[90m/Users/ryanrankin/Desktop/ICS314/digits[39m
+      [2mCoverage enabled with [22m[33mv8[39m
+
+ [32m✓[39m tests/unit/authOptions.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m tests/unit/dbActions.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m tests/unit/validationSchemas.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m tests/unit/page-protection.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m4 passed[39m[22m[90m (4)[39m
+[2m      Tests [22m [1m[32m46 passed[39m[22m[90m (46)[39m
+[2m   Start at [22m 20:10:27
+[2m   Duration [22m 166ms[2m (import 40%, worker 25%, transform 20%, tests 15%)[22m
+
+[34m % [39m[2mCoverage report from [22m[33mv8[39m
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   26.04 |    21.56 |   23.72 |   26.66 |                   
+ app               |       0 |      100 |       0 |       0 |                   
+  not-found.tsx    |       0 |      100 |       0 |       0 | 4-5               
+  page.tsx         |       0 |      100 |       0 |       0 | 1-7               
+  providers.tsx    |       0 |      100 |       0 |       0 | 1-10              
+ app/add           |       0 |      100 |       0 |       0 |                   
+  page.tsx         |       0 |      100 |       0 |       0 | 1-6               
+ app/admin         |       0 |      100 |       0 |       0 |                   
+  page.tsx         |       0 |      100 |       0 |       0 | 5-17              
+ .../[...nextauth] |       0 |      100 |     100 |       0 |                   
+  route.ts         |       0 |      100 |     100 |       0 | 4                 
+ ...hange-password |       0 |        0 |       0 |       0 |                   
+  page.tsx         |       0 |        0 |       0 |       0 | 1-99              
+ app/auth/signin   |       0 |        0 |       0 |       0 |                   
+  page.tsx         |       0 |        0 |       0 |       0 | 1-27              
+ app/auth/signout  |       0 |      100 |       0 |       0 |                   
+  page.tsx         |       0 |      100 |       0 |       0 | 1-13              
+ app/auth/signup   |       0 |        0 |       0 |       0 |                   
+  page.tsx         |       0 |        0 |       0 |       0 | 1-91              
+ app/edit/[id]     |       0 |        0 |       0 |       0 |                   
+  page.tsx         |       0 |        0 |       0 |       0 | 11-28             
+ app/list          |       0 |        0 |       0 |       0 |                   
+  page.tsx         |       0 |        0 |       0 |       0 | 8-28              
+ ...not-authorized |       0 |      100 |       0 |       0 |                   
+  page.tsx         |       0 |      100 |       0 |       0 | 4-5               
+ components        |       0 |        0 |       0 |       0 |                   
+  ...ntactForm.tsx |       0 |        0 |       0 |       0 | 1-130             
+  AddNoteForm.tsx  |       0 |        0 |       0 |       0 | 1-49              
+  AddStuffForm.tsx |       0 |        0 |       0 |       0 | 1-87              
+  ContactCard.tsx  |       0 |      100 |       0 |       0 | 1-37              
+  ...CardAdmin.tsx |       0 |      100 |       0 |       0 | 1-37              
+  ...ntactForm.tsx |       0 |        0 |       0 |       0 | 1-119             
+  ...StuffForm.tsx |       0 |        0 |       0 |       0 | 1-85              
+  Footer.tsx       |       0 |      100 |       0 |       0 | 4-5               
+  ...ngSpinner.tsx |       0 |      100 |       0 |       0 | 3-4               
+  Navbar.tsx       |       0 |        0 |       0 |       0 | 3-16              
+  NoteItem.tsx     |       0 |        0 |       0 |       0 | 16-18             
+  StuffItem.tsx    |       0 |      100 |       0 |       0 | 5-6               
+  ...ItemAdmin.tsx |       0 |      100 |       0 |       0 | 4-5               
+ lib               |   93.33 |    84.61 |     100 |   94.91 |                   
+  authOptions.ts   |     100 |      100 |     100 |     100 |                   
+  dbActions.ts     |     100 |      100 |     100 |     100 |                   
+  ...protection.ts |     100 |      100 |     100 |     100 |                   
+  prisma.ts        |       0 |        0 |     100 |       0 | 9-19              
+  ...ionSchemas.ts |     100 |      100 |     100 |     100 |                   
+-------------------|---------|----------|---------|---------|-------------------

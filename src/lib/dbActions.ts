@@ -12,13 +12,14 @@ import { prisma } from './prisma';
 export async function addStuff(stuff: { name: string; quantity: number; owner: string; condition: string }) {
   // console.log(`addStuff data: ${JSON.stringify(stuff, null, 2)}`);
   let condition: Condition = 'good';
-  if (stuff.condition === 'poor') {
-    condition = 'poor';
-  } else if (stuff.condition === 'excellent') {
-    condition = 'excellent';
-  } else {
-    condition = 'fair';
-  }
+
+if (stuff.condition === 'poor') {
+  condition = 'poor';
+} else if (stuff.condition === 'excellent') {
+  condition = 'excellent';
+} else if (stuff.condition === 'fair') {
+  condition = 'fair';
+}
   await prisma.stuff.create({
     data: {
       name: stuff.name,
